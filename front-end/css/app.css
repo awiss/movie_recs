@@ -8,8 +8,55 @@ body, html {
 	margin-top: 5%;
 }
 
-.row { 
- height: -moz-calc(100% - 150px); /* Firefox */
- height: -webkit-calc(100% - 150px); /* Chrome, Safari */
- height: calc(100% - 150px); /* IE9+ and future browsers */
+
+.center-card {
+   width: 300px;
+   height: 400px;
+   position: absolute;
+   left: 50%;
+   top: 45%; 
+   margin-top:0px;
+   margin-left: -150px;
+   margin-top: -150px;
+   z-index:5000000;
+}
+
+.card.large {
+	width:300px;
+	height:450px;
+}
+
+.mainrow { 
+ height: -moz-calc(100% - 65px); /* Firefox */
+ height: -webkit-calc(100% - 65px); /* Chrome, Safari */
+ height: calc(100% - 65px); /* IE9+ and future browsers */
+ margin:0px;
+ font-size:20px;
+}
+
+.up-down {
+	font-size:100px;
+}
+
+.big{
+	line-height: 25;
+	text-align: center;
+	font-size:25px;
+}
+
+footer.page-footer {
+	margin:0px;
+}
+
+.row .col {
+	padding:0px;
+}
+
+.full {
+	width: 100%;
+    padding: 0px;
+    height: 100%;
+}
+.waves-effect {
+	display:block;
 }
