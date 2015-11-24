@@ -15,7 +15,7 @@ def make_rec():
 	conn = psycopg2.connect(host="movies.cfgdweprellz.us-east-1.rds.amazonaws.com", port=5432, database="project", user="cis450", password="450movies")
 	cur = conn.cursor()
 	LIMIT_CONST = 0.7
-	cur.execute("SELECT * FROM reviews WHERE critic_id in (SELECT critic_id FROM reviews WHERE movie_id in (SELECT movie_id FROM users_rate WHERE user_id = %s and rating = 1) and critic_review.score >= %s) and critic_review.score >= %s and critic_review.movie_id NOT IN (SELECT movie_id FROM users_rate WHERE user_id = %s and rating = 1)", (user_id, LIMIT_CONST, LIMIT_CONST, user_id))
+	cur.execute("SELECT * FROM reviews WHERE critic_name in (SELECT critic_name FROM reviews WHERE movie_id in (SELECT movie_id FROM users_rate WHERE user_id = %s and rating = 1) and reviews.score >= %s) and reviews.score >= %s and reviews.movie_id NOT IN (SELECT movie_id FROM users_rate WHERE user_id = %s and rating = 1)", (user_id, LIMIT_CONST, LIMIT_CONST, user_id))
 	rows = cur.fetchall()
 	return_dict = {}
 	for row in rows:
