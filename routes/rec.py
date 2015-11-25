@@ -19,8 +19,8 @@ def get_recs(user_id):
                                "and reviews.score >= %s) " +
                            "and reviews.score >= %s " +
                            "and reviews.movie_id NOT IN " +
-                               "(SELECT movie_id FROM users_rate WHERE user_id = %s and rating = 1) " +
-                            "ORDER BY score LIMIT 10) AS recs)",
+                               "(SELECT movie_id FROM users_rate WHERE user_id = %s) " +
+                            "ORDER BY score LIMIT 30) recommendations)",
 
                    (user_id, LIMIT_CONST, LIMIT_CONST, user_id))
     rows = cursor.fetchall()
