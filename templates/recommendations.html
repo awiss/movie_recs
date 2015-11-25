@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>What's good?</title>
+  
+  <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.96.1/css/materialize.min.css">
+     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!-- Optimizing for mobile -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+  <link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+  <nav class="white lighten-1" role="navigation" style="z-index:100000">
+    <div class="nav-wrapper" style="z-index:100000">
+    <a href="#" class="brand-logo center"><img class="waves-effect" src="public/logosmall.png" style="height:60px;background:white;"/></a>
+      <ul class="left">
+        <!-- <li><a class="waves-effect waves-light black-text" href="#">Home</a></li> -->
+      </ul>
+      <ul class="right">
+        <li>{{email}}</li>
+        <li><a class="waves-effect waves-light black-text" href="/index">Home<i class="material-icons left">home</i></a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="row mainrow2">
+  {% for rec in recs %}
+    <div class="col s3 offset-s2">
+      <div class="card medium">
+        <div class="card-image waves-effect waves-block waves-light">
+          <img class="activator" src="{{rec[2]}}">
+        </div>
+        <div class="card-content">
+          <span style="font-size:20px" class="card-title activator grey-text text-darken-4 flow-text">{{rec[0]}}</span>
+          <p><a href="#">{{rec[1]}}</a></p>
+        </div>
+        <div class="card-reveal">
+          <span style="font-size:20px" class="card-title grey-text text-darken-4 twenty">{{rec[0]}}</span>
+          <p>{{rec[3]}}</p>
+        </div>
+      </div>
+    </div>
+  {% endfor %}
+  </div>
+
+  <footer class="page-footer light-blue">
+    <div class="footer-copyright">
+      <div class="container">
+      Made by <a class="white-text text-lighten-3" href="#">Arjun Raj Jain, Alex Wissmann, Rohan Bopardikar</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- importing scripts -->
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.96.1/js/materialize.min.js"></script> 
+  <script>
+    Materialize.fadeInImage('.card')
+  </script>
+  </body>
+</html>

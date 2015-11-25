@@ -1,15 +1,10 @@
-# All the Imports 
 import psycopg2
-from flask import Flask
 from flask import request
 from flask import jsonify
-
-app = Flask(__name__)
 
 # Returns recommended movies for a given user id
 # Logic is that selects all critics who liked the movies that the user liked, and then returns the other movies that those critics liked too
 # A critic's "Like" is based on value LIMIT_CONST
-@app.route('/rec', methods=['GET'])
 def make_rec():
 	user_id = int(request.args.get('id', ''))
 	conn = psycopg2.connect(host="movies.cfgdweprellz.us-east-1.rds.amazonaws.com", port=5432, database="project", user="cis450", password="450movies")
@@ -23,12 +18,5 @@ def make_rec():
 		cur.execute("SELECT title, synopsis FROM movies WHERE movies.id = %s", (movie_id))
 		rows2 = cur.fetchall()
 		return_dict[rows2[0]] = rows2[1]
-	return flask.jsonify(**return_dict)
-
-if __name__ == "__main__":
-    app.run()
-
-
-
-
+	return jsonify(**return_dict)
 

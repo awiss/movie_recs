@@ -11,19 +11,17 @@ body, html {
 
 .center-card {
    width: 300px;
-   height: 400px;
+   height: 600px;
    position: absolute;
    left: 50%;
-   top: 45%; 
-   margin-top:0px;
+   margin-top: 25px;
    margin-left: -150px;
-   margin-top: -150px;
    z-index:5000000;
 }
 
-.card.large {
+#large-image {
 	width:300px;
-	height:450px;
+    height:450;
 }
 
 .mainrow { 

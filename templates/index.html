@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>What's good?</title>
-  
+
   <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.96.1/css/materialize.min.css">
      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -19,19 +19,19 @@
         <!-- <li><a class="waves-effect waves-light black-text" href="#">Home</a></li> -->
       </ul>
       <ul class="right">
-        <li><a class="waves-effect waves-light black-text" href="#">Recommendations<i class="material-icons left">receipt</i></a></li>
+        <li><a class="waves-effect waves-light black-text" href="/recommendations">Recommendations<i class="material-icons left">receipt</i></a></li>
       </ul>
     </div>
   </nav>
 
   <div class="center-card">
-        <div class="card large">
-          <div class="card-image waves-effect waves-block waves-light">
-            <img class="activator" src="public/example.jpg">
+        <div class="card">
+          <div id="large-image" class="card-image waves-effect waves-block waves-light">
+            <img class="activator" src="{{poster_url}}">
           </div>
           <div class="card-content">
-            <span style="font-size:20px" class="card-title activator grey-text text-darken-4 flow-text">The Silence of the Lambs</span>
-            <p><a href="#">Jodie Foster, Anthony Hopkins, Scott Glenn</a></p>
+            <span style="font-size:20px" class="card-title activator grey-text text-darken-4 flow-text">{{title}}</span>
+            <p><a>{{year}}</a></p>
           </div>
           <div class="card-reveal">
             <span style="font-size:20px" class="card-title grey-text text-darken-4 twenty">The Silence of the Lambs</span>
@@ -42,10 +42,10 @@
 
   <div class="row mainrow">
       <div class="col s6" style="height:100%;">
-        <a href="#" id="dope" class="big full valign whole waves-effect  waves-green white black-text"><i class="up-down material-icons">thumb_up</i></a>
+        <a href="/index?movie_id={{movie_id}}&rating=1" id="dope" class="big full valign whole waves-effect  waves-green white black-text"><i class="up-down material-icons">thumb_up</i></a>
       </div>
       <div class="col s6" style="height:100%;">
-        <a href="#" id="nope" class="big full valign whole waves-effect  waves-red white black-text"><i class="up-down material-icons">thumb_down</i></a>
+        <a href="/index?movie_id={{movie_id}}&rating=0" id="nope" class="big full valign whole waves-effect  waves-red white black-text"><i class="up-down material-icons">thumb_down</i></a>
       </div>
   </div>
 
