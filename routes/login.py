@@ -2,6 +2,7 @@ import psycopg2
 from flask import render_template, request, session, url_for, redirect
 from globals import get_db_conn
 
+# Routes for login and logout
 def login():
     if request.method == 'GET':
         return render_template('login.html')

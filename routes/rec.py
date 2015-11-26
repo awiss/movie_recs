@@ -3,7 +3,8 @@ from flask import request, session, redirect, url_for, render_template
 from globals import get_db_conn
 
 # Returns recommended movies for a given user id
-# Logic is that selects all critics who liked the movies that the user liked, and then returns the other movies that those critics liked too
+# Logic is that it selects all critics who liked the movies that the user liked, and then returns the other movies
+# that those critics liked too.
 # A critic's "Like" is based on value LIMIT_CONST
 def get_recs(user_id):
     conn = get_db_conn()

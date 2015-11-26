@@ -1,11 +1,14 @@
-import psycopg2
 from flask import render_template, request, redirect, url_for, session
 from globals import get_db_conn
 
+# Route for signing up a new user
 def signup():
     if request.method == 'GET':
         return render_template('signup.html')
     else:
+        if request.form['password'] != request.form['password_conf']:
+            return redirect(url_for('signup'))
+
         email = str(request.form['email'])
         conn = get_db_conn()
         cursor = conn.cursor()

@@ -1,6 +1,7 @@
 from flask import render_template, request, session, redirect, url_for
 from globals import get_db_conn
 
+# Main page, where users rate movies they have seen
 def index():
     if request.method == 'GET':
         user_id = session.get('user_id')
