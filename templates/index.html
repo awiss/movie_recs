@@ -12,11 +12,11 @@
   <link rel="stylesheet" href="css/app.css">
 </head>
 <body>
-  <nav class="white lighten-1" role="navigation" style="z-index:100000">
+  <nav class="white lighten-1" role="navigation" style="z-index:1000000">
     <div class="nav-wrapper" style="z-index:100000">
     <a href="#" class="brand-logo center"><img class="waves-effect" src="public/logosmall.png" style="height:60px;background:white;"/></a>
       <ul class="left">
-        <!-- <li><a class="waves-effect waves-light black-text" href="#">Home</a></li> -->
+        <li><a class="waves-effect waves-light black-text" href="/index"><i class="material-icons right">home</i>Home</a></li>
       </ul>
       <ul class="right">
         <li><a class="waves-effect waves-light black-text" href="/recommendations">Recommendations<i class="material-icons left">receipt</i></a></li>
@@ -26,22 +26,22 @@
 
   <div class="center-card">
         <div class="card">
-          <div id="large-image" class="card-image waves-effect waves-block waves-light">
+          <div id="medium-image" class="card-image waves-effect waves-block waves-light">
             <img class="activator" src="{{poster_url}}">
           </div>
-          <div class="card-content">
-            <span style="font-size:20px" class="card-title activator grey-text text-darken-4 flow-text">{{title}}</span>
+          <!-- <div class="card-content" style="padding:5px;padding-right:20px">
+            <span style="font-size:15px;" class="card-title activator grey-text text-darken-4 flow-text">{{title}}</span>
             <p><a>{{year}}</a></p>
-          </div>
+          </div> -->
           <div class="card-reveal">
-            <span style="font-size:20px" class="card-title grey-text text-darken-4 twenty">The Silence of the Lambs</span>
+            <span style="font-size:20px" class="card-title grey-text text-darken-4 twenty">{{title}}</span>
             <p>Jodie Foster stars as Clarice Starling, a top student at the FBI's training academy. Jack Crawford (Scott Glenn) wants Clarice to interview Dr. Hannibal Lecter (Anthony Hopkins), a brilliant psychiatrist who is also a violent psychopath, serving life behind bars for various acts of murder and cannibalism. Crawford believes that Lecter may have insight into a case and that Starling, as an attractive young woman, may be just the bait to draw him out.</p>
           </div>
         </div>
   </div>
 
   <div class="row mainrow">
-      <div class="col s6" style="height:100%;">
+      <div class="col s6" style="height:100%;border-right:1px solid black;">
         <a href="/index?movie_id={{movie_id}}&rating=1" id="dope" class="big full valign whole waves-effect  waves-green white black-text"><i class="up-down material-icons">thumb_up</i></a>
       </div>
       <div class="col s6" style="height:100%;">
@@ -61,7 +61,7 @@
   <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.96.1/js/materialize.min.js"></script> 
   <script>
-    Materialize.fadeInImage('.card')
+    Materialize.fadeInImage('.activator')
   </script>
   </body>
 </html>
