@@ -1,4 +1,5 @@
 from flask import render_template, request, session, redirect, url_for
+from canistreamit import search, streaming, rental, purchase, dvd, xfinity
 from globals import get_db_conn
 
 # Main page, where users rate movies they have seen
@@ -29,4 +30,4 @@ def index():
 
             return render_template('index.html', movie_id=result[0], title=result[1], year=result[2], poster_url=result[3])
         else:
-            return redirect(url_for('login'))
+            return redirect(url_for('landing'))

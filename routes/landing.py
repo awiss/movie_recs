@@ -3,9 +3,9 @@ from flask import render_template, request, session, url_for, redirect
 from globals import get_db_conn
 
 # Routes for login and logout
-def login():
+def landing():
     if request.method == 'GET':
-        return render_template('login.html')
+        return render_template('landing.html')
     else:
         conn = get_db_conn()
         cursor = conn.cursor()
@@ -25,11 +25,5 @@ def login():
             print "Wrong PW"
             return redirect(url_for('login'))
 
-
-def logout():
-    if request.method == 'GET':
-        session.pop('user_id', None)
-        session.pop('email', None)
-        return redirect(url_for('login'))
 
 

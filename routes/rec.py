@@ -2,6 +2,7 @@ import psycopg2
 from flask import request, session, redirect, url_for, render_template
 from globals import get_db_conn
 
+
 # Returns recommended movies for a given user id
 # Logic is that it selects all critics who liked the movies that the user liked, and then returns the other movies
 # that those critics liked too.
@@ -32,7 +33,7 @@ def get_recs(user_id):
 def show_rec():
     user_id = session.get('user_id')
     if user_id is None:
-        return redirect(url_for('login'))
+        return redirect(url_for('landing'))
     else:
         recs = get_recs(user_id)
         return render_template("recommendations.html", recs=recs, email=user_id)
