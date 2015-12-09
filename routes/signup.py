@@ -4,7 +4,11 @@ from globals import get_db_conn
 # Route for signing up a new user
 def signup():
     if request.method == 'GET':
-        return render_template('signup.html')
+        user_id = session.get('user_id')
+        if user_id is None:
+            return render_template('signup.html')
+        else :
+            return redirect(url_for('index'))
     else:
         if request.form['password'] != request.form['password_conf']:
             return redirect(url_for('signup'))

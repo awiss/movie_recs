@@ -17,9 +17,10 @@
     <a href="#" class="brand-logo center"><img class="waves-effect" src="public/logosmall.png" style="height:60px;background:white;"/></a>
       <ul class="left">
         <li><a class="waves-effect waves-light black-text" href="/index"><i class="material-icons right">home</i>Home</a></li>
+        <li><a class="waves-effect waves-light black-text" href="/recommendations">Recommendations<i class="material-icons right">receipt</i></a></li>
       </ul>
       <ul class="right">
-        <li><a class="waves-effect waves-light black-text" href="/recommendations">Recommendations<i class="material-icons left">receipt</i></a></li>
+        <li><a class="waves-effect waves-light black-text" href="/logout"><i class="material-icons right">input</i>Logout</a></li>
       </ul>
     </div>
   </nav>
@@ -37,7 +38,13 @@
         </div>
         <div class="card-reveal">
           <span style="font-size:20px" class="card-title grey-text text-darken-4 twenty">{{rec[0]}}</span>
-          <p>{{rec[3]}}</p>
+          <p>
+          {% if rec[3] != '' %} 
+            {{rec[3]}}
+          {% else %}
+            No Synopsis Available.
+          {% endif %}
+          </p>
         </div>
       </div>
     </div>

@@ -9,7 +9,7 @@ def index():
         if user_id is not None:
             conn = get_db_conn()
             cursor = conn.cursor()
-            cursor.execute("SELECT id, title, year, poster_url FROM movies WHERE id NOT IN " +
+            cursor.execute("SELECT id, title, year, poster_url,synopsis FROM movies WHERE id NOT IN " +
                                "(SELECT movie_id FROM users_rate WHERE user_id = %s) " +
                            "ORDER BY random() LIMIT 1", (user_id,))
             result = cursor.fetchone()
@@ -28,6 +28,6 @@ def index():
                 conn.commit()
             cursor.close()
 
-            return render_template('index.html', movie_id=result[0], title=result[1], year=result[2], poster_url=result[3])
+            return render_template('index.html', movie_id=result[0], title=result[1], year=result[2], poster_url=result[3],synopsis=result[4])
         else:
             return redirect(url_for('landing'))

@@ -5,6 +5,7 @@ from authomatic.adapters import WerkzeugAdapter
 from authomatic import Authomatic
 from config import CONFIG
 from globals import get_db_conn
+from pprint import pprint
 
 
 app = Flask(__name__, static_folder='front_end')
@@ -36,21 +37,23 @@ def fb():
             result.user.update()
             conn = get_db_conn()
             cursor = conn.cursor()
-            cursor.execute("SELECT id, pw_hash FROM users where email = %s LIMIT 1", (result.user.email,))
+            cursor.execute("SELECT id, pw_hash FROM users where email = %s LIMIT 1", (result.user.name,))
             user = cursor.fetchone()
+            print user
             if user is None:
-                cursor.execute("INSERT into users (email, pw_hash) VALUES (%s, %s)", (result.user.email, result.user.id))
+                cursor.execute("INSERT into users (email, pw_hash) VALUES (%s, %s)", (result.user.name, result.user.id))
                 conn.commit()
-                cursor.execute("SELECT id FROM users WHERE email = %s", (result.user.email,))
+                cursor.execute("SELECT id FROM users WHERE email = %s", (result.user.name,))
                 user = cursor.fetchone()
             session['user_id'] = user[0]
-            session['email'] = result.user.email
+            session['email'] = result.user.name
             cursor.close()
             conn.close()
         # The rest happens inside the template.
             return redirect(url_for('index'))
         else :
             return redirect(url_for('landing'))
+    return response
 
 @app.route('/<path:path>')
 def send_js(path):

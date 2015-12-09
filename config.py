@@ -10,6 +10,6 @@ CONFIG = {
         'consumer_secret': 'e02dec609891e1a96a719da7e5a78ca9',
         
         # But it is also an OAuth 2.0 provider and it needs scope.
-        'scope': ['user_about_me', 'email', 'publish_stream', 'read_stream']
+        'scope': ['public_profile', 'email', 'user_friends','user_about_me']
     }
 }

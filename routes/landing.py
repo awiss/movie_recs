@@ -5,7 +5,11 @@ from globals import get_db_conn
 # Routes for login and logout
 def landing():
     if request.method == 'GET':
-        return render_template('landing.html')
+        user_id = session.get('user_id')
+        if user_id is None:
+            return render_template('landing.html')
+        else :
+            return redirect(url_for('index'))
     else:
         conn = get_db_conn()
         cursor = conn.cursor()
@@ -15,7 +19,7 @@ def landing():
         cursor.close()
         if result is None:
             print "No user"
-            return redirect(url_for('login'))
+            return redirect(url_for('landing'))
 
         if request.form['password'] == result[1]:
             session['user_id'] = result[0]
@@ -23,7 +27,7 @@ def landing():
             return redirect(url_for('index'))
         else:
             print "Wrong PW"
-            return redirect(url_for('login'))
+            return redirect(url_for('landing'))
 
 
 
