@@ -11,12 +11,20 @@
   <link rel="stylesheet" href="css/app.css">
 </head>
 <body>
-  <nav class="white lighten-1" role="navigation" style="z-index:1000000">
-    <div class="nav-wrapper" style="z-index:100000">
+
+  <div id="modal1" class="modal">
+    <div class="modal-content">
+      <h4>Loading...</h4>
+      <p>Grabbing your Recommendations!</p>
+    </div>
+  </div>
+
+  <nav class="white lighten-1" role="navigation">
+    <div class="nav-wrapper">
     <a href="#" class="brand-logo center"><img class="waves-effect" src="public/logosmall.png" style="height:60px;background:white;"/></a>
       <ul class="left">
         <li><a class="waves-effect waves-light black-text" href="/index"><i class="material-icons right">home</i>Home</a></li>
-        <li><a class="waves-effect waves-light black-text" href="/recommendations">Recommendations<i class="material-icons right">receipt</i></a></li>
+        <li><a id="rec" class="waves-effect waves-light black-text" href="/recommendations">Recommendations<i class="material-icons right">receipt</i></a></li>
       </ul>
       <ul class="right">
         <li><a class="waves-effect waves-light black-text" href="/logout"><i class="material-icons right">input</i>Logout</a></li>
@@ -64,6 +72,12 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.96.1/js/materialize.min.js"></script> 
   <script>
     Materialize.fadeInImage('.activator')
+    $(document).ready(function(){
+      // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+      $('#rec').click(function(){
+        $('#modal1').openModal();
+      });
+    });
   </script>
   </body>
 </html>

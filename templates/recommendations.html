@@ -17,7 +17,7 @@
     <a href="#" class="brand-logo center"><img class="waves-effect" src="public/logosmall.png" style="height:60px;background:white;"/></a>
       <ul class="left">
         <li><a class="waves-effect waves-light black-text" href="/index"><i class="material-icons right">home</i>Home</a></li>
-        <li><a class="waves-effect waves-light black-text" href="/recommendations">Recommendations<i class="material-icons right">receipt</i></a></li>
+        <li><a id="rec" class="waves-effect waves-light black-text" href="/recommendations">Recommendations<i class="material-icons right">receipt</i></a></li>
       </ul>
       <ul class="right">
         <li><a class="waves-effect waves-light black-text" href="/logout"><i class="material-icons right">input</i>Logout</a></li>
@@ -26,21 +26,23 @@
   </nav>
 
   <div class="row mainrow2">
-  {% for rec in recs %}
+  {% for blah in recs %}
+    {% for rec in blah[1] %}
     <div class="col s3 offset-s2">
       <div class="card medium">
         <div class="card-image waves-effect waves-block waves-light">
-          <img class="activator" src="{{rec[2]}}">
+          <img class="activator" src="{{rec[0][2]}}">
         </div>
         <div class="card-content">
-          <span style="font-size:20px" class="card-title activator grey-text text-darken-4 flow-text">{{rec[0]}}</span>
-          <p><a href="#">{{rec[1]}}</a></p>
+          <span style="font-size:18px" class="card-title activator grey-text text-darken-4 flow-text">{{rec[0][0]}}</span>
+          <p><a href="#">{{rec[0][1]}}</a></p>
+          <p>Recommended by : {{blah[0][0]}} </p>
         </div>
         <div class="card-reveal">
-          <span style="font-size:20px" class="card-title grey-text text-darken-4 twenty">{{rec[0]}}</span>
+          <span style="font-size:20px" class="card-title grey-text text-darken-4 twenty">{{rec[0][0]}}</span>
           <p>
-          {% if rec[3] != '' %} 
-            {{rec[3]}}
+          {% if rec[0][3] != '' %} 
+            {{rec[0][3]}}
           {% else %}
             No Synopsis Available.
           {% endif %}
@@ -48,6 +50,7 @@
         </div>
       </div>
     </div>
+    {% endfor %}
   {% endfor %}
   </div>
 
